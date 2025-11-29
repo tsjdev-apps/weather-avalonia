@@ -77,7 +77,7 @@ public class WeatherService : IWeatherService
             {
                 return new WeatherResult(
                     IsSuccess: false,
-                    ErrorMessage: Resources.WeatherService_Exception_CityNotFound,
+                    ErrorMessage: string.Format(Resources.WeatherService_Exception_CityNotFound, city),
                     CurrentWeather: null,
                     Forecast: null,
                     CurrentAirPollution: null,
