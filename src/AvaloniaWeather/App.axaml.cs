@@ -4,6 +4,7 @@ using Avalonia.Data.Core.Plugins;
 using Avalonia.Markup.Xaml;
 using AvaloniaWeather.Services;
 using AvaloniaWeather.Services.Interfaces;
+using AvaloniaWeather.ViewModels;
 using AvaloniaWeather.Views;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -39,7 +40,11 @@ public partial class App : Application
             ConfigureServices(services);
             ServiceProvider = services.BuildServiceProvider();
 
-            desktop.MainWindow = new MainWindow();
+            // STEP 3: Create Main Window with DI-resolved ViewModel
+            desktop.MainWindow = new MainWindow
+            {
+                DataContext = ServiceProvider.GetRequiredService<MainWindowViewModel>()
+            };
         }
 
         base.OnFrameworkInitializationCompleted();
@@ -53,6 +58,9 @@ public partial class App : Application
     {
         // Register Weather Service Factory (Singleton)
         services.AddSingleton<IWeatherServiceFactory, WeatherServiceFactory>();
+
+        // Register ViewModels (Transient)
+        services.AddTransient<MainWindowViewModel>();
     }
 
     /// <summary>
