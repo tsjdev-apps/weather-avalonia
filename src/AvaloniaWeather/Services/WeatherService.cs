@@ -45,7 +45,7 @@ public class WeatherService : IWeatherService
             {
                 return new WeatherResult(
                     IsSuccess: false,
-                    ErrorMessage: Resources.WeatherServiceExceptionCityNull,
+                    ErrorMessage: Resources.WeatherService_Exception_CityNull,
                     CurrentWeather: null,
                     Forecast: null,
                     CurrentAirPollution: null,
@@ -65,7 +65,7 @@ public class WeatherService : IWeatherService
             {
                 return new WeatherResult(
                     IsSuccess: false,
-                    ErrorMessage: Resources.WeatherServiceExceptionGeoLocation,
+                    ErrorMessage: Resources.WeatherService_Exception_Geolocation,
                     CurrentWeather: null,
                     Forecast: null,
                     CurrentAirPollution: null,
@@ -77,7 +77,7 @@ public class WeatherService : IWeatherService
             {
                 return new WeatherResult(
                     IsSuccess: false,
-                    ErrorMessage: Resources.WeatherServiceExceptionCityNotFound,
+                    ErrorMessage: Resources.WeatherService_Exception_CityNotFound,
                     CurrentWeather: null,
                     Forecast: null,
                     CurrentAirPollution: null,
@@ -138,7 +138,7 @@ public class WeatherService : IWeatherService
             {
                 return new WeatherResult(
                     IsSuccess: false,
-                    ErrorMessage: Resources.WeatherServiceExceptionCurrentWeather,
+                    ErrorMessage: Resources.WeatherService_Exception_CurrentWeather,
                     CurrentWeather: null,
                     Forecast: null,
                     CurrentAirPollution: null,

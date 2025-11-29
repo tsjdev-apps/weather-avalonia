@@ -61,38 +61,47 @@ namespace AvaloniaWeather.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to An unknown error has occurred..
+        /// </summary>
+        public static string Error_UnknownError {
+            get {
+                return ResourceManager.GetString("Error_UnknownError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The city &apos;{city}&apos; was not found. Please check the spelling..
         /// </summary>
-        public static string WeatherServiceExceptionCityNotFound {
+        public static string WeatherService_Exception_CityNotFound {
             get {
-                return ResourceManager.GetString("WeatherServiceExceptionCityNotFound", resourceCulture);
+                return ResourceManager.GetString("WeatherService_Exception_CityNotFound", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to City name cannot be null or empty..
         /// </summary>
-        public static string WeatherServiceExceptionCityNull {
+        public static string WeatherService_Exception_CityNull {
             get {
-                return ResourceManager.GetString("WeatherServiceExceptionCityNull", resourceCulture);
+                return ResourceManager.GetString("WeatherService_Exception_CityNull", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Error retrieving weather data. Please try again..
         /// </summary>
-        public static string WeatherServiceExceptionCurrentWeather {
+        public static string WeatherService_Exception_CurrentWeather {
             get {
-                return ResourceManager.GetString("WeatherServiceExceptionCurrentWeather", resourceCulture);
+                return ResourceManager.GetString("WeatherService_Exception_CurrentWeather", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Error retrieving geolocation data. Please check your API key..
         /// </summary>
-        public static string WeatherServiceExceptionGeoLocation {
+        public static string WeatherService_Exception_Geolocation {
             get {
-                return ResourceManager.GetString("WeatherServiceExceptionGeoLocation", resourceCulture);
+                return ResourceManager.GetString("WeatherService_Exception_Geolocation", resourceCulture);
             }
         }
     }
