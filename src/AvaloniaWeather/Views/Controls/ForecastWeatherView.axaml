@@ -1,0 +1,93 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:asyncImageLoader="clr-namespace:AsyncImageLoader;assembly=AsyncImageLoader.Avalonia"
+             xmlns:controls="clr-namespace:AvaloniaWeather.Views.Controls"
+             xmlns:converters="clr-namespace:AvaloniaWeather.Converters"
+             xmlns:strings="clr-namespace:AvaloniaWeather.Strings"
+             mc:Ignorable="d"
+             d:DesignWidth="800"
+             d:DesignHeight="450"
+             x:Class="AvaloniaWeather.Views.Controls.ForecastWeatherView"
+             x:DataType="controls:ForecastWeatherView">
+
+    <UserControl.Resources>
+        <converters:UnitSuffixConverter x:Key="UnitSuffixConverter" />
+        <converters:MetersToKmConverter x:Key="MetersToKmConverter" />
+    </UserControl.Resources>
+
+    <ScrollViewer>
+		<ItemsControl ItemsSource="{Binding ForecastItems, RelativeSource={RelativeSource AncestorType={x:Type controls:ForecastWeatherView}}}">
+			<ItemsControl.ItemTemplate>
+				<DataTemplate>
+					<Border
+						Margin="0,0,0,10"
+						Padding="16"
+						Background="#FFF"
+						Classes="Shadow"
+						CornerRadius="12">
+
+						<Grid VerticalAlignment="Center" ColumnDefinitions="Auto,*,Auto,Auto">
+
+							<Image
+								Width="56"
+								Height="56"
+								Margin="0,0,16,0"
+								asyncImageLoader:ImageLoader.Source="{Binding Icon}"
+								Stretch="Uniform" />
+
+							<StackPanel
+								Grid.Column="1"
+								VerticalAlignment="Center"
+								Spacing="4">
+								<TextBlock
+									FontSize="15"
+									FontWeight="SemiBold"
+									Text="{Binding Date, StringFormat='{}{0:dd.MM.yyyy HH:mm}'}" />
+								<TextBlock
+									FontSize="13"
+									Foreground="#666"
+									Text="{Binding WeatherInfos[0].Description}" />
+							</StackPanel>
+
+                            <StackPanel 
+                                Grid.Column="2" 
+                                Margin="16,0,0,0"
+                                VerticalAlignment="Center"
+                                Spacing="2">
+                                <TextBlock
+                                    FontSize="12"
+                                    Foreground="#666"
+                                    Text="{x:Static strings:Resources.CurrentWeather_FeelsLike_Label}" />
+								<TextBlock FontSize="13">
+									<TextBlock.Text>
+										<MultiBinding Converter="{StaticResource UnitSuffixConverter}" ConverterParameter="temperature">
+											<Binding Path="MainWeather.FeelsLikeTemperature" />
+											<Binding Path="Unit" RelativeSource="{RelativeSource AncestorType={x:Type controls:ForecastWeatherView}}" />
+										</MultiBinding>
+									</TextBlock.Text>
+								</TextBlock>
+							</StackPanel>
+
+							<TextBlock
+								Grid.Column="3"
+								Margin="16,0,0,0"
+								VerticalAlignment="Center"
+								FontSize="20"
+								FontWeight="Bold">
+								<TextBlock.Text>
+									<MultiBinding Converter="{StaticResource UnitSuffixConverter}" ConverterParameter="temperature">
+										<Binding Path="MainWeather.Temperature" />
+										<Binding Path="Unit" RelativeSource="{RelativeSource AncestorType={x:Type controls:ForecastWeatherView}}" />
+									</MultiBinding>
+								</TextBlock.Text>
+							</TextBlock>
+						</Grid>
+					</Border>
+				</DataTemplate>
+			</ItemsControl.ItemTemplate>
+		</ItemsControl>
+	</ScrollViewer>
+
+</UserControl>
