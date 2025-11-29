@@ -9,7 +9,7 @@ namespace AvaloniaWeather.Converters;
 public class MetersToKmConverter : IValueConverter
 {
     public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
-        => value is double meters ? $"{meters / 1000:F1-} km" : "-";
+        => value is double meters ? $"{meters / 1000:F1} km" : "-";
 
     public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
         => throw new NotImplementedException();
