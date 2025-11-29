@@ -1,0 +1,33 @@
+# Builds the Avalonia UI project for every Pull Request targeting the 'main' branch.
+# Ensures that the project compiles successfully before merging.
+
+name: Build Avalonia Project for Pull Request
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    # Use the latest Ubuntu runner provided by GitHub
+    runs-on: ubuntu-latest
+
+    steps:
+
+    # Checkout the source code from the PR
+    - uses: actions/checkout@v4
+
+    # Setup the .NET SDK
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        global-json-file: global.json
+
+    # Restore NuGet dependencies
+    - name: Restore dependencies
+      run: dotnet restore
+
+    # Build the project without restoring again
+    - name: Build
+      run: dotnet build --no-restore
