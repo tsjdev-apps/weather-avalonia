@@ -70,6 +70,78 @@ namespace AvaloniaWeather.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to OpenWeatherMap API Key.
+        /// </summary>
+        public static string MainWindow_ApiKey_Header {
+            get {
+                return ResourceManager.GetString("MainWindow_ApiKey_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to API Key.
+        /// </summary>
+        public static string MainWindow_ApiKey_Placeholder {
+            get {
+                return ResourceManager.GetString("MainWindow_ApiKey_Placeholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name of the City.
+        /// </summary>
+        public static string MainWindow_City_Header {
+            get {
+                return ResourceManager.GetString("MainWindow_City_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to City Name.
+        /// </summary>
+        public static string MainWindow_City_Placeholder {
+            get {
+                return ResourceManager.GetString("MainWindow_City_Placeholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Get Weather.
+        /// </summary>
+        public static string MainWindow_GetWeather_Button {
+            get {
+                return ResourceManager.GetString("MainWindow_GetWeather_Button", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Language.
+        /// </summary>
+        public static string MainWindow_Language_Header {
+            get {
+                return ResourceManager.GetString("MainWindow_Language_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to AvaloniaWeather - Weather Forecast.
+        /// </summary>
+        public static string MainWindow_Title {
+            get {
+                return ResourceManager.GetString("MainWindow_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unit.
+        /// </summary>
+        public static string MainWindow_Unit_Header {
+            get {
+                return ResourceManager.GetString("MainWindow_Unit_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The city &apos;{city}&apos; was not found. Please check the spelling..
         /// </summary>
         public static string WeatherService_Exception_CityNotFound {

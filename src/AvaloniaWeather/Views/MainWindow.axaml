@@ -2,15 +2,69 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:strings="clr-namespace:AvaloniaWeather.Strings"
+        xmlns:vm="using:AvaloniaWeather.ViewModels"
         mc:Ignorable="d"
         d:DesignWidth="800"
         d:DesignHeight="450"
         x:Class="AvaloniaWeather.Views.MainWindow"
-        Title="AvaloniaWeather"
+        x:DataType="vm:MainWindowViewModel"
+        Title="{x:Static strings:Resources.MainWindow_Title}"
         Height="800"
         MinHeight="700"
         Width="900"
         MaxWidth="900"
         Icon="/Assets/icon.png">
-    Welcome to Avalonia!
+
+    <ScrollViewer>
+        <StackPanel Margin="16" Spacing="16">
+            <StackPanel>
+                <TextBlock Classes="Header" Text="{x:Static strings:Resources.MainWindow_ApiKey_Header}" />
+                <TextBox
+                    Classes="RevealPasswordButton"
+                    PasswordChar="*"
+                    Text="{Binding ApiKey}"
+                    UseFloatingWatermark="True"
+                    Watermark="{x:Static strings:Resources.MainWindow_ApiKey_Placeholder}" />
+            </StackPanel>
+
+            <StackPanel>
+                <TextBlock Classes="Header" Text="{x:Static strings:Resources.MainWindow_City_Header}" />
+
+                <TextBox
+                    Text="{Binding City}"
+                    UseFloatingWatermark="True"
+                    Watermark="{x:Static strings:Resources.MainWindow_City_Placeholder}" />
+            </StackPanel>
+
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
+
+                <StackPanel Grid.Column="0">
+                    <TextBlock Classes="Header" Text="{x:Static strings:Resources.MainWindow_Language_Header}" />
+                    <ComboBox
+                        HorizontalAlignment="Stretch"
+                        ItemsSource="{Binding Languages}"
+                        SelectedItem="{Binding SelectedLanguage}" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="1">
+                    <TextBlock Classes="Header" Text="{x:Static strings:Resources.MainWindow_Unit_Header}" />
+                    <ComboBox
+                        HorizontalAlignment="Stretch"
+                        ItemsSource="{Binding Units}"
+                        SelectedItem="{Binding SelectedUnit}" />
+                </StackPanel>
+
+            </Grid>
+
+            <Button
+                HorizontalAlignment="Stretch"
+                Classes="Primary"
+                Command="{Binding GetWeatherCommand}"
+                Content="{x:Static strings:Resources.MainWindow_GetWeather_Button}"
+                IsEnabled="{Binding !IsLoading}"
+                Theme="{StaticResource SolidButton}" />
+        </StackPanel>        
+    </ScrollViewer>
+    
 </Window>
