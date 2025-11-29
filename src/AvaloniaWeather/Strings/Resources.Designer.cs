@@ -358,7 +358,7 @@ namespace AvaloniaWeather.Strings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The city &apos;{city}&apos; was not found. Please check the spelling..
+        ///   Looks up a localized string similar to The city &apos;{0}&apos; was not found. Please check the spelling..
         /// </summary>
         public static string WeatherService_Exception_CityNotFound {
             get {
