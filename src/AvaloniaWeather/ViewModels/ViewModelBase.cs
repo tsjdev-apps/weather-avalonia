@@ -2,6 +2,9 @@
 
 namespace AvaloniaWeather.ViewModels;
 
+/// <summary>
+/// Base class for all ViewModels, providing common properties and methods.
+/// </summary>
 public abstract partial class ViewModelBase : ObservableObject
 {
     /// <summary>
