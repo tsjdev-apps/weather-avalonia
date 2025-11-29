@@ -61,11 +61,173 @@ namespace AvaloniaWeather.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ammonia (NH₃).
+        /// </summary>
+        public static string AirPollution_Ammonia_Label {
+            get {
+                return ResourceManager.GetString("AirPollution_Ammonia_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Air Quality Index (AQI).
+        /// </summary>
+        public static string AirPollution_AQI_Label {
+            get {
+                return ResourceManager.GetString("AirPollution_AQI_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to AQI.
+        /// </summary>
+        public static string AirPollution_AQI_Short {
+            get {
+                return ResourceManager.GetString("AirPollution_AQI_Short", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Carbon Monoxide (CO).
+        /// </summary>
+        public static string AirPollution_CarbonMonoxide_Label {
+            get {
+                return ResourceManager.GetString("AirPollution_CarbonMonoxide_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nitrogen Dioxide (NO₂).
+        /// </summary>
+        public static string AirPollution_NitrogenDioxide_Label {
+            get {
+                return ResourceManager.GetString("AirPollution_NitrogenDioxide_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ozone (O₃).
+        /// </summary>
+        public static string AirPollution_Ozone_Label {
+            get {
+                return ResourceManager.GetString("AirPollution_Ozone_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to O₃.
+        /// </summary>
+        public static string AirPollution_Ozone_Short {
+            get {
+                return ResourceManager.GetString("AirPollution_Ozone_Short", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PM10 (Coarse Dust).
+        /// </summary>
+        public static string AirPollution_PM10_Label {
+            get {
+                return ResourceManager.GetString("AirPollution_PM10_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PM2.5 (Fine Dust).
+        /// </summary>
+        public static string AirPollution_PM25_Label {
+            get {
+                return ResourceManager.GetString("AirPollution_PM25_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PM2.5.
+        /// </summary>
+        public static string AirPollution_PM25_Short {
+            get {
+                return ResourceManager.GetString("AirPollution_PM25_Short", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cloudiness.
+        /// </summary>
+        public static string CurrentWeather_Cloudiness_Label {
+            get {
+                return ResourceManager.GetString("CurrentWeather_Cloudiness_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Feels like:.
+        /// </summary>
+        public static string CurrentWeather_FeelsLike_Label {
+            get {
+                return ResourceManager.GetString("CurrentWeather_FeelsLike_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Humidity.
+        /// </summary>
+        public static string CurrentWeather_Humidity_Label {
+            get {
+                return ResourceManager.GetString("CurrentWeather_Humidity_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Precipitation.
+        /// </summary>
+        public static string CurrentWeather_Precipitation_Label {
+            get {
+                return ResourceManager.GetString("CurrentWeather_Precipitation_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Air Pressure.
+        /// </summary>
+        public static string CurrentWeather_Pressure_Label {
+            get {
+                return ResourceManager.GetString("CurrentWeather_Pressure_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Visibility.
+        /// </summary>
+        public static string CurrentWeather_Visibility_Label {
+            get {
+                return ResourceManager.GetString("CurrentWeather_Visibility_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wind.
+        /// </summary>
+        public static string CurrentWeather_Wind_Label {
+            get {
+                return ResourceManager.GetString("CurrentWeather_Wind_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to An unknown error has occurred..
         /// </summary>
         public static string Error_UnknownError {
             get {
                 return ResourceManager.GetString("Error_UnknownError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to AIR POLLUTION FORECAST.
+        /// </summary>
+        public static string MainWindow_AirPollutionForecast_TabItemHeader {
+            get {
+                return ResourceManager.GetString("MainWindow_AirPollutionForecast_TabItemHeader", resourceCulture);
             }
         }
         
@@ -106,6 +268,33 @@ namespace AvaloniaWeather.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to CURRENT AIR POLLUTION.
+        /// </summary>
+        public static string MainWindow_CurrentAirPollution_TabItemHeader {
+            get {
+                return ResourceManager.GetString("MainWindow_CurrentAirPollution_TabItemHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CURRENT WEATHER.
+        /// </summary>
+        public static string MainWindow_CurrentWeather_TabItemHeader {
+            get {
+                return ResourceManager.GetString("MainWindow_CurrentWeather_TabItemHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        public static string MainWindow_Error_Title {
+            get {
+                return ResourceManager.GetString("MainWindow_Error_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Get Weather.
         /// </summary>
         public static string MainWindow_GetWeather_Button {
@@ -124,6 +313,15 @@ namespace AvaloniaWeather.Strings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Loading weather data....
+        /// </summary>
+        public static string MainWindow_Loading_Message {
+            get {
+                return ResourceManager.GetString("MainWindow_Loading_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to AvaloniaWeather - Weather Forecast.
         /// </summary>
         public static string MainWindow_Title {
@@ -138,6 +336,24 @@ namespace AvaloniaWeather.Strings {
         public static string MainWindow_Unit_Header {
             get {
                 return ResourceManager.GetString("MainWindow_Unit_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WEATHER FORECAST.
+        /// </summary>
+        public static string MainWindow_WeatherForecast_TabItemHeader {
+            get {
+                return ResourceManager.GetString("MainWindow_WeatherForecast_TabItemHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Measured at: {0:dd.MM.yyyy HH:mm}.
+        /// </summary>
+        public static string MeasuredAt_Label {
+            get {
+                return ResourceManager.GetString("MeasuredAt_Label", resourceCulture);
             }
         }
         

@@ -117,6 +117,60 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AirPollution_Ammonia_Label" xml:space="preserve">
+    <value>Ammonia (NH₃)</value>
+  </data>
+  <data name="AirPollution_AQI_Label" xml:space="preserve">
+    <value>Air Quality Index (AQI)</value>
+  </data>
+  <data name="AirPollution_AQI_Short" xml:space="preserve">
+    <value>AQI</value>
+  </data>
+  <data name="AirPollution_CarbonMonoxide_Label" xml:space="preserve">
+    <value>Carbon Monoxide (CO)</value>
+  </data>
+  <data name="MeasuredAt_Label" xml:space="preserve">
+    <value>Measured at: {0:dd.MM.yyyy HH:mm}</value>
+  </data>
+  <data name="AirPollution_NitrogenDioxide_Label" xml:space="preserve">
+    <value>Nitrogen Dioxide (NO₂)</value>
+  </data>
+  <data name="AirPollution_Ozone_Label" xml:space="preserve">
+    <value>Ozone (O₃)</value>
+  </data>
+  <data name="AirPollution_Ozone_Short" xml:space="preserve">
+    <value>O₃</value>
+  </data>
+  <data name="AirPollution_PM10_Label" xml:space="preserve">
+    <value>PM10 (Coarse Dust)</value>
+  </data>
+  <data name="AirPollution_PM25_Label" xml:space="preserve">
+    <value>PM2.5 (Fine Dust)</value>
+  </data>
+  <data name="AirPollution_PM25_Short" xml:space="preserve">
+    <value>PM2.5</value>
+  </data>
+  <data name="CurrentWeather_Cloudiness_Label" xml:space="preserve">
+    <value>Cloudiness</value>
+  </data>
+  <data name="CurrentWeather_FeelsLike_Label" xml:space="preserve">
+    <value>Feels like:</value>
+  </data>
+  <data name="CurrentWeather_Humidity_Label" xml:space="preserve">
+    <value>Humidity</value>
+  </data>
+  <data name="CurrentWeather_Precipitation_Label" xml:space="preserve">
+    <value>Precipitation</value>
+  </data>
+  <data name="CurrentWeather_Pressure_Label" xml:space="preserve">
+    <value>Air Pressure</value>
+  </data>
+  <data name="CurrentWeather_Visibility_Label" xml:space="preserve">
+    <value>Visibility</value>
+  </data>
+  <data name="CurrentWeather_Wind_Label" xml:space="preserve">
+    <value>Wind</value>
+  </data>
   <data name="Error_UnknownError" xml:space="preserve">
     <value>An unknown error has occurred.</value>
   </data>
@@ -132,17 +186,32 @@
   <data name="MainWindow_City_Placeholder" xml:space="preserve">
     <value>City Name</value>
   </data>
+  <data name="MainWindow_CurrentAirPollution_TabItemHeader" xml:space="preserve">
+    <value>CURRENT AIR POLLUTION</value>
+  </data>
+  <data name="MainWindow_CurrentWeather_TabItemHeader" xml:space="preserve">
+    <value>CURRENT WEATHER</value>
+  </data>
+  <data name="MainWindow_Error_Title" xml:space="preserve">
+    <value>Error</value>
+  </data>
   <data name="MainWindow_GetWeather_Button" xml:space="preserve">
     <value>Get Weather</value>
   </data>
   <data name="MainWindow_Language_Header" xml:space="preserve">
     <value>Language</value>
   </data>
+  <data name="MainWindow_Loading_Message" xml:space="preserve">
+    <value>Loading weather data...</value>
+  </data>
   <data name="MainWindow_Title" xml:space="preserve">
     <value>AvaloniaWeather - Weather Forecast</value>
   </data>
   <data name="MainWindow_Unit_Header" xml:space="preserve">
     <value>Unit</value>
+  </data>
+  <data name="MainWindow_WeatherForecast_TabItemHeader" xml:space="preserve">
+    <value>WEATHER FORECAST</value>
   </data>
   <data name="WeatherService_Exception_CityNotFound" xml:space="preserve">
     <value>The city '{city}' was not found. Please check the spelling.</value>
@@ -155,5 +224,8 @@
   </data>
   <data name="WeatherService_Exception_Geolocation" xml:space="preserve">
     <value>Error retrieving geolocation data. Please check your API key.</value>
+  </data>
+  <data name="MainWindow_AirPollutionForecast_TabItemHeader" xml:space="preserve">
+    <value>AIR POLLUTION FORECAST</value>
   </data>
 </root>
