@@ -1,0 +1,116 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:asyncImageLoader="clr-namespace:AsyncImageLoader;assembly=AsyncImageLoader.Avalonia"
+             xmlns:controls="clr-namespace:AvaloniaWeather.Views.Controls;assembly=AvaloniaWeather"
+             xmlns:converters="clr-namespace:AvaloniaWeather.Converters;assembly=AvaloniaWeather"
+             xmlns:strings="clr-namespace:AvaloniaWeather.Strings"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="AvaloniaWeather.Views.Controls.CurrentWeatherView">
+
+    <UserControl.Resources>
+        <converters:MetersToKmConverter x:Key="MetersToKmConverter" />
+        <converters:UnitSuffixConverter x:Key="UnitSuffixConverter" />
+    </UserControl.Resources>
+
+    <StackPanel Spacing="16">
+
+        <!--  Header  -->
+        <TextBlock
+            FontSize="20"
+            FontWeight="Bold"
+            Text="{Binding WeatherRoot.Name, RelativeSource={RelativeSource AncestorType={x:Type controls:CurrentWeatherView}}}" />
+        <TextBlock
+            FontSize="12"
+            Foreground="Gray"
+            Text="{Binding WeatherRoot.Date, RelativeSource={RelativeSource AncestorType={x:Type controls:CurrentWeatherView}}}" />
+
+        <DockPanel>
+            <Border
+                Width="100"
+                Height="100"
+                Background="#E0E0E0"
+                CornerRadius="50">
+                <Image
+                    Margin="10"
+                    asyncImageLoader:ImageLoader.Source="{Binding WeatherRoot.Icon4x, RelativeSource={RelativeSource AncestorType={x:Type controls:CurrentWeatherView}}}"
+                    Stretch="Uniform" />
+            </Border>
+            <TextBlock
+                Margin="10,0,0,0"
+                FontSize="18"
+                Text="{Binding WeatherRoot.WeatherInfos[0].Description, RelativeSource={RelativeSource AncestorType={x:Type controls:CurrentWeatherView}}}" />
+        </DockPanel>
+
+        <TextBlock FontSize="24" FontWeight="Bold">
+            <TextBlock.Text>
+                <MultiBinding Converter="{StaticResource UnitSuffixConverter}" ConverterParameter="temperature">
+                    <Binding Path="WeatherRoot.MainWeather.Temperature" RelativeSource="{RelativeSource AncestorType={x:Type controls:CurrentWeatherView}}" />
+                    <Binding Path="Unit" RelativeSource="{RelativeSource AncestorType={x:Type controls:CurrentWeatherView}}" />
+                </MultiBinding>
+            </TextBlock.Text>
+        </TextBlock>
+        <TextBlock FontSize="14" Foreground="Gray">
+            <TextBlock.Text>
+                <MultiBinding Converter="{StaticResource UnitSuffixConverter}" ConverterParameter="temperature">
+                    <Binding Path="WeatherRoot.MainWeather.FeelsLikeTemperature" RelativeSource="{RelativeSource AncestorType={x:Type controls:CurrentWeatherView}}" />
+                    <Binding Path="Unit" RelativeSource="{RelativeSource AncestorType={x:Type controls:CurrentWeatherView}}" />
+                </MultiBinding>
+            </TextBlock.Text>
+        </TextBlock>
+
+        <UniformGrid Columns="3" Rows="2" RowSpacing="12" ColumnSpacing="12">
+            <Border Padding="12" Background="#FFF" CornerRadius="8" Classes="Shadow">
+                <StackPanel Spacing="4">
+                    <TextBlock FontWeight="SemiBold" FontSize="13" Foreground="#666" Text="{x:Static strings:Resources.CurrentWeather_Wind_Label}" />
+                    <TextBlock FontSize="15">
+                        <TextBlock.Text>
+                            <MultiBinding Converter="{StaticResource UnitSuffixConverter}" ConverterParameter="wind">
+                                <Binding Path="WeatherRoot.Wind.Speed" RelativeSource="{RelativeSource AncestorType={x:Type controls:CurrentWeatherView}}" />
+                                <Binding Path="Unit" RelativeSource="{RelativeSource AncestorType={x:Type controls:CurrentWeatherView}}" />
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                </StackPanel>
+            </Border>
+
+            <Border Padding="12" Background="#FFF" CornerRadius="8" Classes="Shadow">
+                <StackPanel Spacing="4">
+                    <TextBlock FontWeight="SemiBold" FontSize="13" Foreground="#666" Text="{x:Static strings:Resources.CurrentWeather_Visibility_Label}" />
+                    <TextBlock FontSize="15" Text="{Binding WeatherRoot.Visibility, Converter={StaticResource MetersToKmConverter}, RelativeSource={RelativeSource AncestorType={x:Type controls:CurrentWeatherView}}}" />
+                </StackPanel>
+            </Border>
+
+            <Border Padding="12" Background="#FFF" CornerRadius="8" Classes="Shadow">
+                <StackPanel Spacing="4">
+                    <TextBlock FontWeight="SemiBold" FontSize="13" Foreground="#666" Text="{x:Static strings:Resources.CurrentWeather_Precipitation_Label}" />
+                    <TextBlock FontSize="15" Text="{Binding WeatherRoot.Rain.OneHour, StringFormat='{}{0:F1} mm/h', FallbackValue='0.0 mm/h', RelativeSource={RelativeSource AncestorType={x:Type controls:CurrentWeatherView}}}" />
+                </StackPanel>
+            </Border>
+
+            <Border Padding="12" Background="#FFF" CornerRadius="8" Classes="Shadow">
+                <StackPanel Spacing="4">
+                    <TextBlock FontWeight="SemiBold" FontSize="13" Foreground="#666" Text="{x:Static strings:Resources.CurrentWeather_Humidity_Label}" />
+                    <TextBlock FontSize="15" Text="{Binding WeatherRoot.MainWeather.Humidity, StringFormat='{}{0}%', RelativeSource={RelativeSource AncestorType={x:Type controls:CurrentWeatherView}}}" />
+                </StackPanel>
+            </Border>
+
+            <Border Padding="12" Background="#FFF" CornerRadius="8" Classes="Shadow">
+                <StackPanel Spacing="4">
+                    <TextBlock FontWeight="SemiBold" FontSize="13" Foreground="#666" Text="{x:Static strings:Resources.CurrentWeather_Pressure_Label}" />
+                    <TextBlock FontSize="15" Text="{Binding WeatherRoot.MainWeather.Pressure, StringFormat='{}{0} hPa', RelativeSource={RelativeSource AncestorType={x:Type controls:CurrentWeatherView}}}" />
+                </StackPanel>
+            </Border>
+
+            <Border Padding="12" Background="#FFF" CornerRadius="8" Classes="Shadow">
+                <StackPanel Spacing="4">
+                    <TextBlock FontWeight="SemiBold" FontSize="13" Foreground="#666" Text="{x:Static strings:Resources.CurrentWeather_Cloudiness_Label}" />
+                    <TextBlock FontSize="15" Text="{Binding WeatherRoot.Clouds.Cloudiness, StringFormat='{}{0}%', RelativeSource={RelativeSource AncestorType={x:Type controls:CurrentWeatherView}}}" />
+                </StackPanel>
+            </Border>
+        </UniformGrid>
+    </StackPanel>
+
+
+</UserControl>

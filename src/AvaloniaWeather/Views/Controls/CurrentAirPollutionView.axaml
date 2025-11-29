@@ -1,0 +1,93 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:AvaloniaWeather.Views.Controls"
+             xmlns:converters="clr-namespace:AvaloniaWeather.Converters"
+             xmlns:strings="clr-namespace:AvaloniaWeather.Strings"
+             mc:Ignorable="d"
+             d:DesignWidth="800"
+             d:DesignHeight="450"
+             x:Class="AvaloniaWeather.Views.Controls.CurrentAirPollutionView"
+             x:DataType="controls:CurrentAirPollutionView">
+
+    <UserControl.Resources>
+        <converters:AqiToBrushConverter x:Key="AqiToBrushConverter" />
+        <converters:AirPollutionValueConverter x:Key="AirPollutionValueConverter" />
+        <converters:DateTimeFormatConverter x:Key="DateTimeFormatConverter" />
+    </UserControl.Resources>
+
+    <StackPanel Spacing="20">
+
+        <Border Padding="16" Background="#FFF" CornerRadius="12" Classes="Shadow">
+            <DockPanel>
+                <Rectangle
+                    Width="32"
+                    Height="32"
+                    Fill="{Binding AirPollution.AQI.Index, Converter={StaticResource AqiToBrushConverter}, RelativeSource={RelativeSource AncestorType={x:Type controls:CurrentAirPollutionView}}}"
+                    RadiusX="6"
+                    RadiusY="6" />
+                <StackPanel Margin="12,0,0,0" VerticalAlignment="Center">
+                    <TextBlock
+                        FontSize="13"
+                        Foreground="#666"
+                        Text="{x:Static strings:Resources.AirPollution_AQI_Label}" />
+                    <TextBlock
+                        FontSize="20"
+                        FontWeight="Bold"
+                        Text="{Binding AirPollution.AQI.Index, RelativeSource={RelativeSource AncestorType={x:Type controls:CurrentAirPollutionView}}}" />
+                </StackPanel>
+            </DockPanel>
+        </Border>
+
+        <TextBlock
+            FontSize="13"
+            Foreground="#666"
+            Text="{Binding AirPollution.Date, Converter={StaticResource DateTimeFormatConverter}, RelativeSource={RelativeSource AncestorType={x:Type controls:CurrentAirPollutionView}}}" />
+
+        <UniformGrid
+            ColumnSpacing="12"
+            Columns="2"
+            RowSpacing="12"
+            Rows="3">
+            <Border Padding="12" Background="#FFF" CornerRadius="8" Classes="Shadow">
+                <StackPanel Spacing="4">
+                    <TextBlock FontWeight="SemiBold" FontSize="13" Foreground="#666" Text="{x:Static strings:Resources.AirPollution_PM25_Label}" />
+                    <TextBlock FontSize="16" Text="{Binding AirPollution.Components.FineParticlesMatter, Converter={StaticResource AirPollutionValueConverter}, RelativeSource={RelativeSource AncestorType={x:Type controls:CurrentAirPollutionView}}}" />
+                </StackPanel>
+            </Border>
+            <Border Padding="12" Background="#FFF" CornerRadius="8" Classes="Shadow">
+                <StackPanel Spacing="4">
+                    <TextBlock FontWeight="SemiBold" FontSize="13" Foreground="#666" Text="{x:Static strings:Resources.AirPollution_PM10_Label}" />
+                    <TextBlock FontSize="16" Text="{Binding AirPollution.Components.CoarseParticulateMatter, Converter={StaticResource AirPollutionValueConverter}, RelativeSource={RelativeSource AncestorType={x:Type controls:CurrentAirPollutionView}}}" />
+                </StackPanel>
+            </Border>
+            <Border Padding="12" Background="#FFF" CornerRadius="8" Classes="Shadow">
+                <StackPanel Spacing="4">
+                    <TextBlock FontWeight="SemiBold" FontSize="13" Foreground="#666" Text="{x:Static strings:Resources.AirPollution_Ozone_Label}" />
+                    <TextBlock FontSize="16" Text="{Binding AirPollution.Components.Ozone, Converter={StaticResource AirPollutionValueConverter}, RelativeSource={RelativeSource AncestorType={x:Type controls:CurrentAirPollutionView}}}" />
+                </StackPanel>
+            </Border>
+            <Border Padding="12" Background="#FFF" CornerRadius="8" Classes="Shadow">
+                <StackPanel Spacing="4">
+                    <TextBlock FontWeight="SemiBold" FontSize="13" Foreground="#666" Text="{x:Static strings:Resources.AirPollution_NitrogenDioxide_Label}" />
+                    <TextBlock FontSize="16" Text="{Binding AirPollution.Components.NitrogenDioxide, Converter={StaticResource AirPollutionValueConverter}, RelativeSource={RelativeSource AncestorType={x:Type controls:CurrentAirPollutionView}}}" />
+                </StackPanel>
+            </Border>
+            <Border Padding="12" Background="#FFF" CornerRadius="8" Classes="Shadow">
+                <StackPanel Spacing="4">
+                    <TextBlock FontWeight="SemiBold" FontSize="13" Foreground="#666" Text="{x:Static strings:Resources.AirPollution_CarbonMonoxide_Label}" />
+                    <TextBlock FontSize="16" Text="{Binding AirPollution.Components.CarbonMonoxide, Converter={StaticResource AirPollutionValueConverter}, RelativeSource={RelativeSource AncestorType={x:Type controls:CurrentAirPollutionView}}}" />
+                </StackPanel>
+            </Border>
+            <Border Padding="12" Background="#FFF" CornerRadius="8" Classes="Shadow">
+                <StackPanel Spacing="4">
+                    <TextBlock FontWeight="SemiBold" FontSize="13" Foreground="#666" Text="{x:Static strings:Resources.AirPollution_Ammonia_Label}" />
+                    <TextBlock FontSize="16" Text="{Binding AirPollution.Components.Ammonia, Converter={StaticResource AirPollutionValueConverter}, RelativeSource={RelativeSource AncestorType={x:Type controls:CurrentAirPollutionView}}}" />
+                </StackPanel>
+            </Border>
+        </UniformGrid>
+
+    </StackPanel>
+
+</UserControl>

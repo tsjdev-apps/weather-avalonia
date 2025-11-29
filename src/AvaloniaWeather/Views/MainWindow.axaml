@@ -1,0 +1,140 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:controls="clr-namespace:AvaloniaWeather.Views.Controls;assembly=AvaloniaWeather"
+        xmlns:converters="clr-namespace:AvaloniaWeather.Converters"
+        xmlns:strings="clr-namespace:AvaloniaWeather.Strings"
+        xmlns:vm="using:AvaloniaWeather.ViewModels"
+        mc:Ignorable="d"
+        d:DesignWidth="800"
+        d:DesignHeight="450"
+        x:Class="AvaloniaWeather.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Title="{x:Static strings:Resources.MainWindow_Title}"
+        Height="800"
+        MinHeight="700"
+        Width="900"
+        MaxWidth="900"
+        Icon="/Assets/icon.png">
+
+    <Window.Resources>
+        <converters:NullToVisibilityConverter x:Key="NullToVisibilityConverter" />
+    </Window.Resources>
+
+    <ScrollViewer>
+        <StackPanel Margin="16" Spacing="16">
+            <StackPanel>
+                <TextBlock Classes="Header" Text="{x:Static strings:Resources.MainWindow_ApiKey_Header}" />
+                <TextBox Classes="RevealPasswordButton"
+                         PasswordChar="*"
+                         Text="{Binding ApiKey}"
+                         UseFloatingWatermark="True"
+                         Watermark="{x:Static strings:Resources.MainWindow_ApiKey_Placeholder}" />
+            </StackPanel>
+
+            <StackPanel>
+                <TextBlock Classes="Header" Text="{x:Static strings:Resources.MainWindow_City_Header}" />
+
+                <TextBox Text="{Binding City}"
+                         UseFloatingWatermark="True"
+                         Watermark="{x:Static strings:Resources.MainWindow_City_Placeholder}" />
+            </StackPanel>
+
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
+
+                <StackPanel Grid.Column="0">
+                    <TextBlock Classes="Header" Text="{x:Static strings:Resources.MainWindow_Language_Header}" />
+                    <ComboBox HorizontalAlignment="Stretch"
+                              ItemsSource="{Binding Languages}"
+                              SelectedItem="{Binding SelectedLanguage}" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="1">
+                    <TextBlock Classes="Header" Text="{x:Static strings:Resources.MainWindow_Unit_Header}" />
+                    <ComboBox HorizontalAlignment="Stretch"
+                              ItemsSource="{Binding Units}"
+                              SelectedItem="{Binding SelectedUnit}" />
+                </StackPanel>
+
+            </Grid>
+
+            <Button HorizontalAlignment="Stretch"
+                    Classes="Primary"
+                    Command="{Binding GetWeatherCommand}"
+                    Content="{x:Static strings:Resources.MainWindow_GetWeather_Button}"
+                    IsEnabled="{Binding !IsLoading}"
+                    Theme="{StaticResource SolidButton}" />
+
+            <!--  Loading Indicator  -->
+            <Border Padding="12"
+                    Background="#E3F2FD"
+                    CornerRadius="8"
+                    IsVisible="{Binding IsLoading}">
+                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Spacing="8">
+                    <TextBlock VerticalAlignment="Center"
+                               FontSize="14"
+                               Text="{x:Static strings:Resources.MainWindow_Loading_Message}" />
+                </StackPanel>
+            </Border>
+
+            <!--  Error Message  -->
+            <Border Padding="12"
+                    Background="#FFEBEE"
+                    CornerRadius="8"
+                    IsVisible="{Binding HasError}">
+                <StackPanel Spacing="8">
+                    <TextBlock FontSize="14"
+                               FontWeight="SemiBold"
+                               Foreground="#C62828"
+                               Text="{x:Static strings:Resources.MainWindow_Error_Title}" />
+                    <TextBlock FontSize="13"
+                               Foreground="#C62828"
+                               Text="{Binding ErrorMessage}"
+                               TextWrapping="Wrap" />
+                </StackPanel>
+            </Border>
+
+            <TabControl Margin="0,12" IsVisible="{Binding WeatherRoot, Converter={StaticResource NullToVisibilityConverter}}">
+                <TabItem Header="{x:Static strings:Resources.MainWindow_CurrentWeather_TabItemHeader}">
+                    <Border Margin="0,8"
+                            Padding="20"
+                            Background="#F9F9F9"
+                            Classes="Shadow"
+                            CornerRadius="12">
+                        <controls:CurrentWeatherView Unit="{Binding SelectedUnit}" WeatherRoot="{Binding WeatherRoot}" />
+                    </Border>
+                </TabItem>
+                <TabItem Header="{x:Static strings:Resources.MainWindow_WeatherForecast_TabItemHeader}">
+                    <Border Margin="0,8"
+                            Padding="20"
+                            Background="#F9F9F9"
+                            Classes="Shadow"
+                            CornerRadius="12">
+                        <controls:ForecastWeatherView Margin="0,8" ForecastItems="{Binding ForecastItems}" Unit="{Binding SelectedUnit}" />
+                    </Border>
+                </TabItem>
+                <TabItem Header="{x:Static strings:Resources.MainWindow_CurrentAirPollution_TabItemHeader}">
+                    <Border Margin="0,8"
+                            Padding="20"
+                            Background="#F9F9F9"
+                            Classes="Shadow"
+                            CornerRadius="12">
+                        <controls:CurrentAirPollutionView AirPollution="{Binding CurrentAirPollution}" />
+                    </Border>
+                </TabItem>
+                <TabItem Header="{x:Static strings:Resources.MainWindow_AirPollutionForecast_TabItemHeader}">
+                    <Border Margin="0,8"
+                            Padding="20"
+                            Background="#F9F9F9"
+                            Classes="Shadow"
+                            CornerRadius="12">
+                        <controls:ForecastAirPollutionView AirPollutionItems="{Binding AirPollutionForecast}" />
+                    </Border>
+                </TabItem>
+            </TabControl>
+
+        </StackPanel>
+    </ScrollViewer>
+
+</Window>

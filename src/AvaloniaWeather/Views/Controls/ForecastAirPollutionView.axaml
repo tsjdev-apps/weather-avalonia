@@ -1,0 +1,89 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:AvaloniaWeather.Views.Controls"
+             xmlns:converters="clr-namespace:AvaloniaWeather.Converters"
+             xmlns:strings="clr-namespace:AvaloniaWeather.Strings"
+             mc:Ignorable="d"
+             d:DesignWidth="800"
+             d:DesignHeight="450"
+             x:Class="AvaloniaWeather.Views.Controls.ForecastAirPollutionView"
+             x:DataType="controls:ForecastAirPollutionView">
+
+    <UserControl.Resources>
+        <converters:AqiToBrushConverter x:Key="AqiToBrushConverter" />
+        <converters:AirPollutionValueConverter x:Key="AirPollutionValueConverter" />
+    </UserControl.Resources>
+
+    <ScrollViewer>
+        <ItemsControl ItemsSource="{Binding AirPollutionItems, RelativeSource={RelativeSource AncestorType={x:Type controls:ForecastAirPollutionView}}}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Border
+                        Margin="0,0,0,10"
+                        Padding="16"
+                        Background="#FFF"
+                        Classes="Shadow"
+                        CornerRadius="12">
+                        <Grid
+                            VerticalAlignment="Center"
+                            ColumnDefinitions="Auto,*,Auto,Auto,Auto"
+                            ColumnSpacing="20">
+
+                            <!--  Farbiges Quadrat je nach AQI  -->
+                            <Rectangle
+                                Width="32"
+                                Height="32"
+                                Fill="{Binding AQI.Index, Converter={StaticResource AqiToBrushConverter}}"
+                                RadiusX="6"
+                                RadiusY="6" />
+
+                            <!--  Datum  -->
+                            <TextBlock
+                                Grid.Column="1"
+                                VerticalAlignment="Center"
+                                FontSize="14"
+                                FontWeight="SemiBold"
+                                Text="{Binding Date, StringFormat='{}{0:dd.MM.yyyy HH:mm}'}" />
+
+                            <!--  AQI-Wert  -->
+                            <StackPanel Grid.Column="2" Spacing="2">
+                                <TextBlock
+                                    FontSize="11"
+                                    Foreground="#666"
+                                    Text="{x:Static strings:Resources.AirPollution_AQI_Short}" />
+                                <TextBlock
+                                    FontSize="15"
+                                    FontWeight="SemiBold"
+                                    Text="{Binding AQI.Index}" />
+                            </StackPanel>
+
+                            <!--  PM2.5-Wert  -->
+                            <StackPanel Grid.Column="3" Spacing="2">
+                                <TextBlock
+                                    FontSize="11"
+                                    Foreground="#666"
+                                    Text="{x:Static strings:Resources.AirPollution_PM25_Short}" />
+                                <TextBlock
+                                    FontSize="13"
+                                    Text="{Binding Components.FineParticlesMatter, Converter={StaticResource AirPollutionValueConverter}}" />
+                            </StackPanel>
+
+                            <!--  O3-Wert  -->
+                            <StackPanel Grid.Column="4" Spacing="2">
+                                <TextBlock
+                                    FontSize="11"
+                                    Foreground="#666"
+                                    Text="{x:Static strings:Resources.AirPollution_Ozone_Short}" />
+                                <TextBlock
+                                    FontSize="13"
+                                    Text="{Binding Components.Ozone, Converter={StaticResource AirPollutionValueConverter}}" />
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </ScrollViewer>
+</UserControl>
