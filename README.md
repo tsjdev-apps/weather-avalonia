@@ -2,7 +2,7 @@
 
 Cross-platform, modern, and extensible weather & air quality desktop app built with Avalonia UI and .NET.
 
-![Header](/docs/header.png)
+![Header](docs/header.png)
 
 Targets `.NET 10` , leveraging MVVM, localization, fluent styling, and clean service abstractions.
 
