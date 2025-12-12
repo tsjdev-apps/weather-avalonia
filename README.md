@@ -131,6 +131,11 @@ To add a new UI language:
 ![Current Air Pollution](docs/avaloniaweather-04.png)
 ![Air Pollution Forecast](docs/avaloniaweather-05.png)
 
+## ✍️ Blog Post
+If you are more interested into details, please see the following posts on [medium.com](https://medium.com/@tsjdevapps) or in my [personal blog](https://www.tsjdev-apps.de):
+
+- [Building a Modern, Cross-Platform Weather App with Avalonia UI](https://medium.com/medialesson/building-a-modern-cross-platform-weather-app-with-avalonia-ui-b580328d1cfb)
+
 ## 🤝 Contributing
 
 Contributions are welcome! Please:
