@@ -6,6 +6,8 @@ Cross-platform, modern, and extensible weather & air quality desktop app built w
 
 Targets `.NET 10` , leveraging MVVM, localization, fluent styling, and clean service abstractions.
 
+[![Build Avalonia](https://github.com/tsjdev-apps/weather-avalonia/actions/workflows/build-avaloniaapp.yml/badge.svg)](https://github.com/tsjdev-apps/weather-avalonia/actions/workflows/build-avaloniaapp.yml)
+
 ## 🧭 Overview
 
 AvaloniaWeather is a desktop application that displays current weather, 5‑day forecast (3‑hour intervals), and air quality (current + forecast) using the OpenWeatherMap API. It is designed to be:
